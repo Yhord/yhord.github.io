@@ -13,6 +13,7 @@
   <meta name="copyright" content="Yhord">
   <link rel="stylesheet" href="css/etineres.css">
   <script src="js/etineres.js"></script>
+  <script src="js/terminal.js"></script>
 </head>
 <body class="noselect">
   <div unselectable="on" class="noselect glowing" id="title-area"><span id="title"><span id="title-part1">Étinérés</span><span id="title-part2">OS</span></span> <span id="subtitle">(づ｡◕‿‿◕｡)づ</span></div>
@@ -50,8 +51,16 @@
       <p class="external-link none">🔗</p>
     </div>
 
-    <div id="terminal" class="item blocked" title="A terminal">
-      <div class="img-container"><img src="img/terminal.png"></img></div>
+    <div id="tryhackme" class="item" title="Access to my TryHackMe page">
+      <a href="https://tryhackme.com/p/Yhord" target="_blank">
+        <div class="img-container"><img src="img/tryhackme_logo.png" alt="TryHackMe logo" class="smaller"></img></div>
+        <p>TryHackMe</p>
+      </a>
+      <p class="external-link none">🔗</p>
+    </div>
+
+    <div id="terminal" class="item" title="A terminal">
+      <div class="img-container" onclick="createTerminal();"><img src="img/terminal.png"></img></div>
       <p>Terminal</p>
     </div>
   </main>
@@ -59,9 +68,12 @@
   <div id="sidemenu">
     <div id="shrimp" class="sidemenu-item" title="Shrimp dancing"><p>🦐</p></div>
     <div id="youmu" class="sidemenu-item" title="Fish"><p>🐟</p></div>
+    <div id="lkj" class="sidemenu-item" title="Little King John"><p>⛵</p></div>
     <hr>
     <div id="manage-modding" class="sidemenu-item" title="Show/Hide modding items"><p>🔧</p></div>
     <div id="manage-external-link" class="sidemenu-item" title="Show/Hide external link emoji"><p>🔗</p></div>
+    <hr>
+    <div id="speaker" class="sidemenu-item" title="A speaker. It seems broken."><p class="broken">🔈</p></div>
   </div>
 </body>
 </html>
