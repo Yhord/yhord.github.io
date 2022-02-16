@@ -4,7 +4,7 @@ function createTerminal() {
   a = getWindowDimension();
   b = getRandomPosition(a[0], a[1]);
 
-  let windowHTML = '<div class="window" style="top:' + b[0] + '; left:' + b[1] + ';"> <div class="window-menubar"><span class="window-title">' + title + '</span><div class="window-btn-quit" onclick="removeWindow(this);">X</div></div><div class="window-content"><div class="terminal"><div class="terminal-text">ÉtinérésOS v1.1<br>Type or click on <span class="command" onclick="terminalAutoFillInput(this);">help</span> to see a list of commands.<br>You can use <span class="command" onclick="terminalAutoFillInput(this);">about</span>, <span class="command" onclick="terminalAutoFillInput(this);">changelog</span> or <span class="command" onclick="terminalAutoFillInput(this);">credits</span> for more informations about this website.<br></div><div class="terminal-input-line"><span class="input-text">C:/EtineresOS/Desktop></span><input type="text" spellcheck="false" class="terminal-input"></div></div></div></div>';
+  let windowHTML = `<div class="window" style="top:${b[0]}; left:${b[1]};"> <div class="window-menubar"><span class="window-title">${title}</span><div class="window-btn-quit" onclick="removeWindow(this);">X</div></div><div class="window-content"><div class="terminal"><div class="terminal-text">ÉtinérésOS v1.1<br>Type or click on <span class="command" onclick="terminalAutoFillInput(this);">help</span> to see a list of commands.<br>You can use <span class="command" onclick="terminalAutoFillInput(this);">about</span>, <span class="command" onclick="terminalAutoFillInput(this);">changelog</span> or <span class="command" onclick="terminalAutoFillInput(this);">credits</span> for more informations about this website.<br></div><div class="terminal-input-line"><span class="input-text">C:/EtineresOS/Desktop></span><input type="text" spellcheck="false" class="terminal-input"></div></div></div></div>`;
   document.body.insertAdjacentHTML('beforeend', windowHTML);
 
   var newTerminalInput = document.body.lastElementChild.getElementsByClassName('terminal-input')[0];
@@ -75,10 +75,10 @@ function handleCommand(winContentTerminal) {
       createWindow("touhou-paranoia", "Paranoia 2019", "wnli28pjsn4");
       break;
     case 'yt':
-      terminalRequiredArgs(spUserInput, 1) ? createWindow("yt", "Youtube Video", spUserInput[1]) : terminalAddText(wtt, requestString("about"));
+      terminalRequiredArgs(spUserInput, 1) ? createWindow("yt", "Youtube Video", spUserInput[1]) : terminalAddText(wtt, requestString("missingArgs"));
       break;
     default:
-      terminalAddText(wtt, "'" + userInput + "'" + ": Unknown command")
+      terminalAddText(wtt, `'${userInput}': Unknown command`);
       break;
   }
   winContentTerminal.scrollTo(0,winContentTerminal.scrollHeight); // Scrolling to the bottom of the terminal
