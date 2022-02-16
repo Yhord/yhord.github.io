@@ -155,7 +155,7 @@ function createWindow(type, title, ytId)  {
       <div class="window-menubar">
         <span class="window-title">title</span>
         <div class="window-btn-quit" onclick="removeWindow(this);">X</div>
-        <a target="_blank" href="https://www.youtube.com/watch?v=' + ytId + '"><div class="window-btn-source">+</div></a>
+        <a target="_blank" href="https://www.youtube.com/watch?v=ytId"><div class="window-btn-source">+</div></a>
       </div>
       <div class="window-content">
         <iframe width="winWidth" "winHeight" src="https://www.youtube.com/embed/yt_id" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -165,7 +165,7 @@ function createWindow(type, title, ytId)  {
   let a = getWindowDimension();
   let b = getRandomPosition(a[0], a[1]);
 
-  let windowHTML = '<div class="window ' + type + '" style="top:' + b[0] + '; left:' + b[1] + ';"> <div class="window-menubar"><span class="window-title">' + title + '</span><div class="window-btn-quit" onclick="removeWindow(this);">X</div><a target="_blank" href="https://www.youtube.com/watch?v=' + ytId + '"><div class="window-btn-source">+</div></a></div><div class="window-content"><iframe src="https://www.youtube.com/embed/' + ytId + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
+  let windowHTML = `<div class="window ${type}" style="top:${b[0]}; left:${b[1]};"> <div class="window-menubar"><span class="window-title">${title}</span><div class="window-btn-quit" onclick="removeWindow(this);">X</div><a target="_blank" href="https://www.youtube.com/watch?v=${ytId}"><div class="window-btn-source">+</div></a></div><div class="window-content"><iframe src="https://www.youtube.com/embed/${ytId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
   document.body.insertAdjacentHTML('beforeend', windowHTML);
 }
 
@@ -253,7 +253,7 @@ function getRandomEmoticon() {
 }
 
 function getAllVisibleCommands() {
-  return ["help", "about", 'changelog', 'credits', 'clear', 'date', 'emoticon', 'tenacity', 'touhou'];
+  return ["help", "about", "changelog", "credits", "clear", "date", "emoticon", "tenacity", "touhou"];
 }
 
 function getAllVisibleCommandsWithArgs() {
