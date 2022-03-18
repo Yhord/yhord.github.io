@@ -4,7 +4,7 @@ function createTerminal() {
   a = getWindowDimension();
   b = getRandomPosition(a[0], a[1]);
 
-  let windowHTML = `<div class="window" style="top:${b[0]}; left:${b[1]};"> <div class="window-menubar"><span class="window-title">${title}</span><div class="window-btn-quit" onclick="removeWindow(this);">X</div></div><div class="window-content"><div class="terminal"><div class="terminal-text">ÉtinérésOS v1.1<br>Type or click on <span class="command" onclick="terminalAutoFillInput(this);">help</span> to see a list of commands.<br>You can use <span class="command" onclick="terminalAutoFillInput(this);">about</span>, <span class="command" onclick="terminalAutoFillInput(this);">changelog</span> or <span class="command" onclick="terminalAutoFillInput(this);">credits</span> for more informations about this website.<br></div><div class="terminal-input-line"><span class="input-text">C:/EtineresOS/Desktop></span><input type="text" spellcheck="false" class="terminal-input"></div></div></div></div>`;
+  let windowHTML = `<div class="window" style="top:${b[0]}; left:${b[1]};"> <div class="window-menubar"><span class="window-title">${title}</span><div class="window-btn-quit" onclick="removeWindow(this);">X</div></div><div class="window-content"><div class="terminal"><div class="terminal-text">ÉtinérésOS v1.2<br>Type or click on <span class="command" onclick="terminalAutoFillInput(this);">help</span> to see a list of commands.<br>You can use <span class="command" onclick="terminalAutoFillInput(this);">about</span>, <span class="command" onclick="terminalAutoFillInput(this);">changelog</span> or <span class="command" onclick="terminalAutoFillInput(this);">credits</span> for more informations about this website.<br></div><div class="terminal-input-line"><span class="input-text">C:/EtineresOS/Desktop></span><input type="text" spellcheck="false" class="terminal-input"></div></div></div></div>`;
   document.body.insertAdjacentHTML('beforeend', windowHTML);
 
   var newTerminalInput = document.body.lastElementChild.getElementsByClassName('terminal-input')[0];
@@ -122,9 +122,10 @@ function requestString(strName) {
       let separator = "<br>" + "*".repeat(43) + "<br>";
       let v1_0 = separator + "v1.0 - Release - 5th January 2022" + separator;
       let v1_1 = "v1.1 - First update - 9th February 2022<br>New side menu item ⛵<br>Working terminal<br>- Available commands: help, about, changelog, credits, clear, date, emoticon, tenacity, touhou, yt<br>- <span class=\"terminal-text-hidden\">Secret</span> commands<br>New item giving access to my TryHackMe page<br>New button on windows title bar to open the source of the displayed content<br>Title and subtitle aren't visible anymore on small screens<br>Windows can now be moved (desktop and mobile)<br>" + separator;
-      return v1_0 + v1_1;
+      let v1_2 = "v1.2 - Spring update 🌸 - 18th March 2022<br>Spring Theme<br>New item: Phipy Buddy<br>Keyboard shortcuts<br>- Press M to use the speakers (main page and Phipy page)<br>- On main page: t (Terminal), o (Toggle Modding Items), l (Toggle External Links)<br>" + separator;
+      return v1_0 + v1_1 + v1_2;
     case "credits":
-      return "Nothing to show yet";
+      return 'Phipy.html:<br>- Spamton from <a href="https://deltarune.com">DELTARUNE</a> (Toby Fox)<br>- <a href="https://en.wikipedia.org/wiki/Dragon_Ball">Dragon Ball</a> Teleportation Sound Effect';
     case "jebaited":
       return '<a target="_blank" href="https://www.youtube.com/watch?v=d1YBv2mWll0">secret</a>';
     case "twitch":

@@ -4,9 +4,11 @@ html, body {
 }
 
 body {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /*background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);*/ /* Winter 1 */
+  background: linear-gradient(45deg, #db6498, #ffdde1);
   background-attachment: fixed;
-  background-color: #764ba2;
+  /*background-color: #764ba2;*/ /* Winter 1 */
+  background-color: #ee9ca7;
   min-width: 100%;
   min-height: 100%;
   margin: 0;
@@ -129,7 +131,8 @@ main>div {
 .item img {
   max-width: 100%;
   width: 100%;
-  filter: drop-shadow(0px 0px 0.3rem #4d4db3);
+  /* filter: drop-shadow(0px 0px 0.3rem #4d4db3); */ /* Winter 1 */
+  filter: drop-shadow(0px 0px 0.3rem #ed929e);
 }
 
 img.smaller { /* Reduce size of an image */
@@ -149,8 +152,8 @@ img.smaller { /* Reduce size of an image */
 
 .item:hover {
   background-color: rgba(230, 230, 230, 0.1);
-  outline: 1px solid lightgray;
-
+  /*outline: 1px solid lightgray;*/ /* Winter 1 */
+  outline: 1px solid white;
 }
 
 /* TITLE */
@@ -170,14 +173,16 @@ img.smaller { /* Reduce size of an image */
 }
 
 #title-part1 {
-  color: #E6E6E6;
+  /*color: #E6E6E6;*/ /* Winter 1 */
+  color: white;
 }
 
 #title-part2 {
 }
 
 .glowing {
-  text-shadow: 0px 2px 18px #9C9C9C;
+  /*text-shadow: 0px 2px 18px #9C9C9C;*/ /* Winter 1 */
+  text-shadow: 0px 2px 18px #d9d9d9;
 }
 
 #subtitle {
@@ -216,7 +221,8 @@ img.smaller { /* Reduce size of an image */
 }
 
 .sidemenu-item[class~="actived"] {
-  border-left: 3px solid rgba(230, 230, 230, 0.7);
+  /*border-left: 3px solid rgba(230, 230, 230, 0.7);*/ /* Winter 1 */
+  border-left: 3px solid rgba(230, 230, 230, 0.9);
 }
 
 .sidemenu-item>p {

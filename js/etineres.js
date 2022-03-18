@@ -42,27 +42,45 @@ window.onload=function() {
     createWindow("lkj", "Little King John searching for land", "6eQTLQm8mIQ?start=204")
   }, false);
 
+  /* DESKTOP: PHIPY SWAP IMG */
+  let phipyImg = document.getElementById('phipy_img');
+
+  phipyImg.addEventListener("mouseover", function(event) {
+    phipyImg.setAttribute("src", "img/phipy_eyebrow.gif");
+  }, false);
+
+  phipyImg.addEventListener("mouseout", function(event) {
+    phipyImg.setAttribute("src", "img/phipy.gif");
+  }, false);
+
+
   /* SIDE MENU > MODDING ITEMS actived */
   let manageModding = document.getElementById('manage-modding');
-  manageModding.addEventListener("mouseup", function(event) {
+  manageModding.addEventListener("mouseup", toggleModdingItems, false);
+
+  function toggleModdingItems() {
     manageModding.classList.toggle('actived');
     let toToggle = document.querySelectorAll('.modding').forEach((item) => {
         item.classList.toggle('none');
     });
-  }, false);
+  }
 
   /* SIDE MENU > External Link  */
   let externalLink = document.getElementById('manage-external-link');
-  externalLink.addEventListener("mouseup", function(event) {
+  externalLink.addEventListener("mouseup", toggleExternalLinkSign, false);
+
+  function toggleExternalLinkSign() {
     externalLink.classList.toggle('actived');
     let toToggle = document.querySelectorAll('.external-link').forEach((item) => {
       item.classList.toggle('none');
     });
-  }, false);
+  }
 
   /* SIDE MENU > Broken */
   let speaker = document.getElementById('speaker');
-  speaker.addEventListener("mouseup", function(event) {
+  speaker.addEventListener("mouseup", useSpeaker, false);
+
+  function useSpeaker() {
     speaker.firstChild.classList.remove('animation-broken');
     playSound("broken");
     // https://stackoverflow.com/a/41556846 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Tips
@@ -71,7 +89,29 @@ window.onload=function() {
         speaker.firstChild.classList.add('animation-broken');
       });
     });
-  }, false);
+  }
+
+  /* KEYBOARD EVENT */
+  document.addEventListener('keyup', function(event) {
+    console.log(document.activeElement instanceof HTMLBodyElement)
+    if (document.activeElement === null || document.activeElement instanceof HTMLBodyElement) {
+      let key = event.key;
+      switch(key.toLowerCase()) {
+        case "m":
+          useSpeaker();
+          break;
+        case "t":
+          createTerminal();
+          break;
+        case "o":
+          toggleModdingItems();
+          break;
+        case "l":
+          toggleExternalLinkSign();
+          break;
+      }
+    }
+  });
 
 }
 
@@ -206,7 +246,7 @@ function unblockPointerEvents() {
 
 /* SOUND MANAGEMENT */
 function playSound(key) {
-  var broken = new Audio('audio/broken.wav');
+  let broken = new Audio('audio/broken.wav');
   switch(key) {
     case "broken":
       broken.play();
