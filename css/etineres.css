@@ -387,7 +387,7 @@ img.smaller { /* Reduce size of an image */
   }
 }
 
-.animation-broken {
+.animation-shaking {
   animation: shaking 0.2s 2;
   -webkit-animation: shaking 0.2s 2;
   position: relative;

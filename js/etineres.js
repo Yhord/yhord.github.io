@@ -10,10 +10,26 @@ window.onload=function() {
     cirnoImg.setAttribute("src", "img/cirno.png");
   }, false);
 
+  /* DESKTOP: PHIPY SWAP IMG */
+  let phipyImg = document.getElementById('phipy_img');
+
+  phipyImg.addEventListener("mouseover", function(event) {
+    phipyImg.setAttribute("src", "img/phipy_eyebrow.gif");
+  }, false);
+
+  phipyImg.addEventListener("mouseout", function(event) {
+    phipyImg.setAttribute("src", "img/phipy.gif");
+  }, false);
+
   /* SIDE MENU */
+  let isItShrimpHeaven = false;
   let shrimpItem = document.getElementById('shrimp');
   shrimpItem.addEventListener("mouseup", function(event) {
     createWindow("shrimp", "Shrimp heaven <span class=\"backward\">🦐</span>🍻🦐", "hkJaXZeonVg")
+
+    if (!isItShrimpHeaven) {
+      playAnimation(shrimpItem.firstChild, 'animation-shaking');
+    }
 
     // Preloading the gif - https://perishablepress.com/3-ways-preload-images-css-javascript-ajax/#:~:text=JavaScript%20Method%20#2
     if (document.getElementsByClassName('shrimp').length == 2) {
@@ -22,6 +38,7 @@ window.onload=function() {
     }
 
     if (document.getElementsByClassName('shrimp').length == 5) {
+      isItShrimpHeaven = true;
       setSubtitle("<span class=\"backward\">🦐</span> ／人 ◕ ‿‿ ◕ 人＼ 🦐"); //"🦐 (づ｡◕‿‿◕｡)づ 🦐"
       document.body.style.background = "url(img/shrimp_heaven.gif)";
       // To match background style
@@ -42,15 +59,16 @@ window.onload=function() {
     createWindow("lkj", "Little King John searching for land", "6eQTLQm8mIQ?start=204")
   }, false);
 
-  /* DESKTOP: PHIPY SWAP IMG */
-  let phipyImg = document.getElementById('phipy_img');
-
-  phipyImg.addEventListener("mouseover", function(event) {
-    phipyImg.setAttribute("src", "img/phipy_eyebrow.gif");
-  }, false);
-
-  phipyImg.addEventListener("mouseout", function(event) {
-    phipyImg.setAttribute("src", "img/phipy.gif");
+  let misteryItem = document.getElementById('mistery');
+  let phipyIcon = document.getElementById('phipy');
+  let misteryClickCount = 0;
+  misteryItem.addEventListener("mouseup", function(event) {
+    playAnimation(misteryItem.firstChild, 'animation-shaking');
+    misteryClickCount += 1;
+    if (misteryClickCount === 5) {
+      phipyIcon.hidden = false;
+      misteryItem.hidden = true;
+    }
   }, false);
 
 
@@ -81,15 +99,10 @@ window.onload=function() {
   speaker.addEventListener("mouseup", useSpeaker, false);
 
   function useSpeaker() {
-    speaker.firstChild.classList.remove('animation-broken');
     playSound("broken");
-    // https://stackoverflow.com/a/41556846 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Tips
-    window.requestAnimationFrame(function(time) {
-      window.requestAnimationFrame(function(time) {
-        speaker.firstChild.classList.add('animation-broken');
-      });
-    });
+    playAnimation(speaker.firstChild, 'animation-shaking');
   }
+
 
   /* KEYBOARD EVENT */
   document.addEventListener('keyup', function(event) {
@@ -255,6 +268,17 @@ function playSound(key) {
       console.log("[Error] Provided key " + key + " have no sound associated.");
       break;
   }
+}
+
+/* ANIMATIONS MANAGEMENT */
+function playAnimation(target, animation) {
+  target.classList.remove(animation);
+  // https://stackoverflow.com/a/41556846 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Tips
+  window.requestAnimationFrame(function(time) {
+    window.requestAnimationFrame(function(time) {
+      target.classList.add(animation);
+    });
+  });
 }
 
 /* UTILS */

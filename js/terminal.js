@@ -122,7 +122,9 @@ function requestString(strName) {
       let separator = "<br>" + "*".repeat(43) + "<br>";
       let v1_0 = separator + "v1.0 - Release - 5th January 2022" + separator;
       let v1_1 = "v1.1 - First update - 9th February 2022<br>New side menu item ⛵<br>Working terminal<br>- Available commands: help, about, changelog, credits, clear, date, emoticon, tenacity, touhou, yt<br>- <span class=\"terminal-text-hidden\">Secret</span> commands<br>New item giving access to my TryHackMe page<br>New button on windows title bar to open the source of the displayed content<br>Title and subtitle aren't visible anymore on small screens<br>Windows can now be moved (desktop and mobile)<br>" + separator;
-      let v1_2 = "v1.2 - Spring update 🌸 - 18th March 2022<br>Spring Theme<br>New item: Phipy Buddy<br>Keyboard shortcuts<br>- Press M to use the speakers (main page and Phipy page)<br>- On main page: t (Terminal), o (Toggle Modding Items), l (Toggle External Links)<br>" + separator;
+      let v1_2 = "v1.2 - Spring update 🌸 - 18th March 2022<br>Spring Theme<br>New item: Phipy Buddy<br>Keyboard shortcuts<br>- Press M to use the speakers (main page and Phipy page)<br>- On main page: t (Terminal), o (Toggle Modding Items), l (Toggle External Links)<br>";
+      let v1_2_1 = "<br>v1.2.1 - Minor adjustment - 19th March 2022<br>New side menu item 👾<br>Phipy is now hidden by default<br>Shrimp side menu item is now moving on click 🦐" + separator;
+      v1_2 = v1_2 + v1_2_1
       return v1_0 + v1_1 + v1_2;
     case "credits":
       return 'Phipy.html:<br>- Spamton from <a href="https://deltarune.com">DELTARUNE</a> (Toby Fox)<br>- <a href="https://en.wikipedia.org/wiki/Dragon_Ball">Dragon Ball</a> Teleportation Sound Effect';
