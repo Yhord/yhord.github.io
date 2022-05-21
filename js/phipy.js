@@ -4,6 +4,7 @@ let download = document.getElementById('download');
 let phipyImg = document.getElementById('phipy_img');
 let takemeback = document.getElementById('takemeback');
 let takemebackValue = takemeback.text;
+playSound('dbz_tp');
 
 /* DOWNLOAD */
 download.addEventListener("mouseover", function(event) {
@@ -14,7 +15,8 @@ download.addEventListener("mouseover", function(event) {
   download.text = changeNChar(download.text);
   takemeback.text = takemebackValue.replaceAll("a", "4");
   takemeback.text = changeNChar(takemeback.text);
-  body.classList.add('movingBackground');
+  body.classList.add('movingBackgroundFaster');
+  body.classList.remove('movingBackground');
 }, false);
 
 download.addEventListener("mouseout", function(event) {
@@ -24,7 +26,8 @@ download.addEventListener("mouseout", function(event) {
   phipyImg.setAttribute("src", "../img/phipy.gif");
   download.text = changeNChar(download.text);
   takemeback.text = takemebackValue;
-  body.classList.remove('movingBackground');
+  body.classList.add('movingBackground');
+  body.classList.remove('movingBackgroundFaster');
 }, false);
 
 download.addEventListener("mouseup", function(event) {

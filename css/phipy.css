@@ -12,6 +12,10 @@ body {
   animation: moveBg 100s linear infinite;
 }
 
+.movingBackgroundFaster {
+  animation: moveBg 20s linear infinite;
+}
+
 @keyframes moveBg { /* https://stackoverflow.com/a/36820563 */
   from {background-position: left right;}
   to {background-position: top right;}

@@ -5,11 +5,13 @@ html, body {
 
 body {
   /*background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);*/ /* Winter 1 */
-  background: linear-gradient(45deg, #db6498, #ffdde1);
-  background-attachment: fixed;
   /*background-color: #764ba2;*/ /* Winter 1 */
-  background-color: #ee9ca7;
+  /*background: linear-gradient(45deg, #db6498, #ffdde1);*/ /* Early spring 1 */
+  /*background-color: #ee9ca7;*/ /* Early spring 1 */
+  background: rgb(49,187,109);
+  background: linear-gradient(45deg, rgba(49,187,109,1) 0%, rgba(32,215,112,1) 33%, rgba(45,212,128,1) 67%, rgba(48,218,165,1) 100%);
   min-width: 100%;
+  background-attachment: fixed;
   min-height: 100%;
   margin: 0;
 	padding: 0;
@@ -132,7 +134,8 @@ main>div {
   max-width: 100%;
   width: 100%;
   /* filter: drop-shadow(0px 0px 0.3rem #4d4db3); */ /* Winter 1 */
-  filter: drop-shadow(0px 0px 0.3rem #ed929e);
+  /* filter: drop-shadow(0px 0px 0.3rem #ed929e); */ /* Early spring 1 */
+  filter: drop-shadow(0px 0px 0.3rem #16ad5d);
 }
 
 img.smaller { /* Reduce size of an image */
@@ -182,7 +185,16 @@ img.smaller { /* Reduce size of an image */
 
 .glowing {
   /*text-shadow: 0px 2px 18px #9C9C9C;*/ /* Winter 1 */
-  text-shadow: 0px 2px 18px #d9d9d9;
+  /*text-shadow: 0px 2px 18px #d9d9d9; /* Early spring 1 */
+  animation-name: glowing 10s reverse infinite;
+  -webkit-animation: glowing 10s reverse infinite;
+}
+
+@keyframes glowing {
+  0% {text-shadow: 0px 2px 18px #2cf68a;}
+  25% {text-shadow: 0px 2px 18px #d9d9d9;}
+  50% {text-shadow: 0px 2px 18px #d9d9d9;}
+  100% {text-shadow: 0px 2px 18px #2cf68a;}
 }
 
 #subtitle {

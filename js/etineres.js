@@ -59,6 +59,11 @@ window.onload=function() {
     createWindow("lkj", "Little King John searching for land", "6eQTLQm8mIQ?start=204")
   }, false);
 
+  let chanchanItem = document.getElementById('chanchan');
+  chanchanItem.addEventListener("mouseup", function(event) {
+    createWindow("chanchan", "🎊 Ya Boy Kongming! OP", "TyqDOOpJlcA")
+  }, false);
+
   let misteryItem = document.getElementById('mistery');
   let phipyIcon = document.getElementById('phipy');
   let misteryClickCount = 0;
@@ -68,6 +73,7 @@ window.onload=function() {
     if (misteryClickCount === 5) {
       phipyIcon.hidden = false;
       misteryItem.hidden = true;
+      playSound('mistery');
     }
   }, false);
 
@@ -106,7 +112,6 @@ window.onload=function() {
 
   /* KEYBOARD EVENT */
   document.addEventListener('keyup', function(event) {
-    console.log(document.activeElement instanceof HTMLBodyElement)
     if (document.activeElement === null || document.activeElement instanceof HTMLBodyElement) {
       let key = event.key;
       switch(key.toLowerCase()) {
@@ -257,12 +262,21 @@ function unblockPointerEvents() {
   }
 }
 
+/* SIDE MENU UTILS */
+function showSideMenuItem(id) {
+  let element = document.getElementById(id);
+  element.hidden = false;
+}
+
 /* SOUND MANAGEMENT */
 function playSound(key) {
   let broken = new Audio('audio/broken.wav');
   switch(key) {
     case "broken":
       broken.play();
+      break;
+    case "mistery":
+      new Audio('audio/mixkit-retro-arcade-casino-notification-211.wav').play();
       break;
     default:
       console.log("[Error] Provided key " + key + " have no sound associated.");
@@ -317,7 +331,7 @@ function getRandomEmoticon() {
 }
 
 function getAllVisibleCommands() {
-  return ["help", "about", "changelog", "credits", "clear", "date", "emoticon", "tenacity", "touhou"];
+  return ["help", "about", "changelog", "credits", "clear", "date", "emoticon", 'phipy', "tenacity", "touhou"];
 }
 
 function getAllVisibleCommandsWithArgs() {
