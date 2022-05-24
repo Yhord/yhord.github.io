@@ -4,7 +4,6 @@ let download = document.getElementById('download');
 let phipyImg = document.getElementById('phipy_img');
 let takemeback = document.getElementById('takemeback');
 let takemebackValue = takemeback.text;
-playSound('dbz_tp');
 
 /* DOWNLOAD */
 download.addEventListener("mouseover", function(event) {
