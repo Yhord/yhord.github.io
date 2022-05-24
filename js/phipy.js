@@ -39,6 +39,7 @@ download.addEventListener("mouseup", function(event) {
   thanks.hidden = false;
   stopSound("theme");
   document.getElementById('speaker').hidden = true;
+  body.classList.remove('movingBackground');
 }, false);
 
 /* SPEAKER */
